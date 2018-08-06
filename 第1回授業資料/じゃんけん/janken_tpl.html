@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1>じゃんけん</h1>
+</header>
+
+<main>
+  <ul>
+    <li id="guu_btn">グー</li>
+    <li id="cho_btn">チョキ</li>
+    <li id="par_btn">パー</li>
+  </ul>
+  <div>コンピュータの出した手は？</div>
+  <span id="pc_hands"></span>
+  <div id="judgment"></div>
+</main>
+
+<footer></footer>
+<script>
+$(function(){
+  const pc = "#pc_hands";
+  const judg = "#judgment";
+
+  const guu = '<img src = "img/guu.jpg" width="200">';
+  const cho = '<img src = "img/cho.jpg" width="200">';
+  const par = '<img src = "img/par.jpg" width="200">';
+
+  const win = "勝ち";
+  const draw = "引き分け";
+  const lose = "負け";
+
+  // グーを押した場合
+  $("#guu_btn").on("click",function(){
+    let num = Math.ceil(Math.random() * 3);
+    if(num == 1){
+      $(pc).html(cho);
+      $(judg).html(win);
+    }
+    if(num == 2){
+      $(pc).html(guu);
+      $(judg).html(draw);
+    }
+    if(num == 3){
+      $(pc).html(par);
+      $(judg).html(lose);
+    }
+  });
+
+  // チョキを押した場合
+  $("#cho_btn").on("click",function(){
+    let num = Math.ceil(Math.random() * 3);
+    if(num == 1){
+      $(pc).html(par);
+      $(judg).html(win);
+    }
+    if(num == 2){
+      $(pc).html(cho);
+      $(judg).html(draw);
+    }
+    if(num == 3){
+      $(pc).html(guu);
+      $(judg).html(lose);
+    }
+  });
+
+  // パーを押した場合
+  $("#par_btn").on("click",function(){
+    let num = Math.ceil(Math.random() * 3);
+    if(num == 1){
+      $(pc).html(guu);
+      $(judg).html(win);
+    }
+    if(num == 2){
+      $(pc).html(par);
+      $(judg).html(draw);
+    }
+    if(num == 3){
+      $(pc).html(cho);
+      $(judg).html(lose);
+    }
+  });
+
+});
+
+
+
+
+</script>
+</body>
+</html>
